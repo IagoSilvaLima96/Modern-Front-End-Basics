@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Validation form</title>
+    <meta charset="utf-8">
+
+    <style>
+        body {
+            font: 1em sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        form {
+            max-width: 200px;
+            margin: 0;
+            padding: 0 5px;
+        }
+
+        p>label {
+            display: block;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number],
+        textarea,
+        fieldset {
+            /* required to properly style form 
+   elements on WebKit based browsers */
+            -webkit-appearance: none;
+
+            width: 100%;
+            border: 1px solid #333;
+            margin: 0;
+
+            font-family: inherit;
+            font-size: 90%;
+
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        input:invalid {
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        input:focus:invalid {
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action="send-data">
+        <p>
+            <fieldset>
+                <legend>Gender <abbr title="This field is mandatory">*</abbr></legend>
+                <input type="radio" name="gender" id="male" value="Male" required /> <label for="male">Male.</label>
+                <input type="radio" name="gender" id="female" value="female" required /> <label
+                    for="female">Female.</label>
+            </fieldset>
+        </p>
+
+        <p>
+            <label for="age">How old are you?</label>
+            <input name="age" type="number" step="1" min="18" max="80" id="age">
+        </p>
+
+        <p>
+            <label for="email">What's your email?</label>
+            <input type="email" id="email" name="email">
+        </p>
+
+        <p>
+            <label for="car">What's your favorite car? <abbr title="This field is mandatory">*</abbr> </label>
+            <input type="text" id="car" name="car" list="cars" required pattern="[Bb]mw|[Mm]ercedes|[Pp]orsche">
+
+            <datalist id="cars">
+                <option>Bmw</option>
+                <option>Mercedes</option>
+                <option>Porsche</option>
+            </datalist>
+        </p>
+
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+
+    <script>
+        var car = document.querySelector('#car');
+        car.addEventListener("input", function (event) {
+            if (car.validity.patternMismatch) {
+                car.setCustomValidity("You can only choose Bmw, Mercedes or Porsche!");
+            } else {
+                car.setCustomValidity("");
+            }
+        });
+    </script>
+</body>
+
+</html>
