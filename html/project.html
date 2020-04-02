@@ -9,8 +9,9 @@
 <body>
 
     <form action="process" method="POST">
+        <h1>Restaurant Register</h1>
         <fieldset>
-            <legend>Personal Information</legend>
+            <legend>General Information</legend>
 
             <div>
                 <label for="name">Name</label>
@@ -26,24 +27,29 @@
                 <label for="phone">Phone</label>
                 <input id="phone" type="tel" required/>
             </div>
+
+            <div>
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+            </div>
         </fieldset>
 
         <fieldset>
-            <legend>Car Information</legend>
+            <legend>Address</legend>
 
             <div>
-                <label for="brand">Brand</label>
-                <input id="brand" type="text" required/>
+                <label for="street">Street</label>
+                <input id="street" type="text" required/>
             </div>
 
             <div>
-                <label for="model">Model</label>
-                <input id="model" type="model" required/>
+                <label for="State">State</label>
+                <input id="state" type="text" required/>
             </div>
 
             <div>
-                <label for="year">Year</label>
-                <input id="year" type="number" min="1996" required/>
+                <label for="city">City</label>
+                <input id="city" type="text" required/>
             </div>
         </fieldset>
 
