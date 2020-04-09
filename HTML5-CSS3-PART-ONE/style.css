@@ -2,6 +2,18 @@ body {
     background: #CCCCCC;
 }
 
+#banner {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+#missao {
+    font-size: 20px;
+}
+
 p {
     text-align: center;
 }
